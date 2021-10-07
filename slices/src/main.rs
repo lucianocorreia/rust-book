@@ -1,5 +1,5 @@
 fn main() {
-    let my_string = String::From("hello world");
+    let my_string = String::from("hello world");
 
     let word = first_word(&my_string[0..6]);
     let word = first_word(&my_string[..]);
