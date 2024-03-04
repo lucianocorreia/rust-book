@@ -16,7 +16,7 @@ enum Coin {
 
 fn main() {
     let coin = Coin::Quarter(UsState::Alaska);
-    let value = value_in_cents(coin);
+    let value = value_in_cents(&coin);
     println!("value: {}", value);
 
     // if let
@@ -27,7 +27,7 @@ fn main() {
     }
 }
 
-fn value_in_cents(coin: Coin) -> u8 {
+fn value_in_cents(coin: &Coin) -> u8 {
     match coin {
         Coin::Penny => {
             println!("Lucky Penny!");
