@@ -1,5 +1,6 @@
 #[allow(unused)]
 #[allow(unused_variables)]
+
 #[derive(Debug)]
 enum UsState {
     Alabama,
@@ -17,7 +18,7 @@ enum Coin {
 fn main() {
     let coin = Coin::Quarter(UsState::Alaska);
     let value = value_in_cents(&coin);
-    println!("value: {}", value);
+    println!("value: {value}");
 
     // if let
     if let Coin::Penny = coin {
@@ -30,7 +31,7 @@ fn main() {
 fn value_in_cents(coin: &Coin) -> u8 {
     match coin {
         Coin::Penny => {
-            println!("Lucky Penny!");
+            println!("Lucky Penny! ");
             1
         }
         Coin::Nickel => 5,
