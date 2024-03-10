@@ -63,6 +63,10 @@ fn main() {
     closure_04();
     println!("\n----------------\n");
     closure_05();
+
+    // Itaraors
+    iterators_01();
+    iterators_02();
 }
 
 fn closure_02() {
@@ -119,4 +123,53 @@ fn closure_05() {
 
     list.sort_by_key(|r| r.width);
     println!("Sorted by width: {list:#?}");
+}
+
+fn iterators_01() {
+    let iter1 = [1, 2, 3];
+    let iter2 = iter1.iter().map(|x| x + 1).collect::<Vec<_>>();
+
+    assert_eq!(iter2, vec![2, 3, 4]);
+}
+
+#[derive(PartialEq, Debug)]
+struct Shoe {
+    size: u32,
+    style: String,
+}
+
+fn shows_in_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
+    shoes.into_iter().filter(|s| s.size == shoe_size).collect()
+}
+
+fn iterators_02() {
+    let shoes = vec![
+        Shoe {
+            size: 10,
+            style: String::from("sneaker"),
+        },
+        Shoe {
+            size: 13,
+            style: String::from("sandal"),
+        },
+        Shoe {
+            size: 10,
+            style: String::from("boot"),
+        },
+    ];
+
+    let in_my_size = shows_in_size(shoes, 10);
+    assert_eq!(
+        in_my_size,
+        vec![
+            Shoe {
+                size: 10,
+                style: String::from("sneaker")
+            },
+            Shoe {
+                size: 10,
+                style: String::from("boot")
+            }
+        ]
+    );
 }
