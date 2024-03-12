@@ -1,7 +1,7 @@
 #![allow(unused)]
 
 use std::{
-    env::{args, Args},
+    env::{self, args, Args},
     error::Error,
     fs::read_to_string,
     process::exit,
