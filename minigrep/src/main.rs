@@ -15,7 +15,7 @@ fn main() {
         eprintln!("Problem parsing arguments: {}", err);
         exit(1);
     });
-
+    
     println!("-> Searching for {}", config.query);
     println!("-> In file {}\n", config.file_path);
 
